@@ -50,7 +50,7 @@ view { counter, name } =
         divStyle =
             [ ( "backgroundColor", "green" ), ( "padding", "20px" ) ]
 
-        spanStyle =
+        textStyle =
             [ ( "color", "white" ) ]
 
         buttonStyle =
@@ -61,12 +61,14 @@ view { counter, name } =
     in
     div
         [ style divStyle ]
-        [ span
-            [ style spanStyle ]
+        [ p
+            [ style textStyle ]
             [ text ("Olar " ++ name ++ "!") ]
-        , p [ style spanStyle ]
-            [ text (toString counter) ]
+        , p [ style textStyle ] [ text "Qual é seu nome?" ]
         , input [ value name, onInput InputName ] []
+        , p [ style textStyle ] [ text "Mostre que você sabe somar:" ]
+        , p [ style textStyle ]
+            [ text (toString counter) ]
         , button [ style buttonStyle, onClick Inc ] [ text "+ Increase" ]
         , button [ style buttonStyle, onClick Dec ] [ text "- Decrease" ]
         , button [ style buttonStyle, onClick (Add 10) ] [ text "Add 10" ]
