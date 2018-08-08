@@ -93,7 +93,7 @@ var _user$project$Main$view = function (_p1) {
 			_1: {ctor: '[]'}
 		}
 	};
-	var spanStyle = {
+	var textStyle = {
 		ctor: '::',
 		_0: {ctor: '_Tuple2', _0: 'color', _1: 'white'},
 		_1: {ctor: '[]'}
@@ -117,10 +117,10 @@ var _user$project$Main$view = function (_p1) {
 		{
 			ctor: '::',
 			_0: A2(
-				_elm_lang$html$Html$span,
+				_elm_lang$html$Html$p,
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$style(spanStyle),
+					_0: _elm_lang$html$Html_Attributes$style(textStyle),
 					_1: {ctor: '[]'}
 				},
 				{
@@ -138,13 +138,12 @@ var _user$project$Main$view = function (_p1) {
 					_elm_lang$html$Html$p,
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$style(spanStyle),
+						_0: _elm_lang$html$Html_Attributes$style(textStyle),
 						_1: {ctor: '[]'}
 					},
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html$text(
-							_elm_lang$core$Basics$toString(_p2.counter)),
+						_0: _elm_lang$html$Html$text('Qual é seu nome?'),
 						_1: {ctor: '[]'}
 					}),
 				_1: {
@@ -164,37 +163,30 @@ var _user$project$Main$view = function (_p1) {
 					_1: {
 						ctor: '::',
 						_0: A2(
-							_elm_lang$html$Html$button,
+							_elm_lang$html$Html$p,
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$style(buttonStyle),
-								_1: {
-									ctor: '::',
-									_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Inc),
-									_1: {ctor: '[]'}
-								}
+								_0: _elm_lang$html$Html_Attributes$style(textStyle),
+								_1: {ctor: '[]'}
 							},
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html$text('+ Increase'),
+								_0: _elm_lang$html$Html$text('Mostre que você sabe somar:'),
 								_1: {ctor: '[]'}
 							}),
 						_1: {
 							ctor: '::',
 							_0: A2(
-								_elm_lang$html$Html$button,
+								_elm_lang$html$Html$p,
 								{
 									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$style(buttonStyle),
-									_1: {
-										ctor: '::',
-										_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Dec),
-										_1: {ctor: '[]'}
-									}
+									_0: _elm_lang$html$Html_Attributes$style(textStyle),
+									_1: {ctor: '[]'}
 								},
 								{
 									ctor: '::',
-									_0: _elm_lang$html$Html$text('- Decrease'),
+									_0: _elm_lang$html$Html$text(
+										_elm_lang$core$Basics$toString(_p2.counter)),
 									_1: {ctor: '[]'}
 								}),
 							_1: {
@@ -206,14 +198,13 @@ var _user$project$Main$view = function (_p1) {
 										_0: _elm_lang$html$Html_Attributes$style(buttonStyle),
 										_1: {
 											ctor: '::',
-											_0: _elm_lang$html$Html_Events$onClick(
-												_user$project$Main$Add(10)),
+											_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Inc),
 											_1: {ctor: '[]'}
 										}
 									},
 									{
 										ctor: '::',
-										_0: _elm_lang$html$Html$text('Add 10'),
+										_0: _elm_lang$html$Html$text('+ Increase'),
 										_1: {ctor: '[]'}
 									}),
 								_1: {
@@ -222,19 +213,58 @@ var _user$project$Main$view = function (_p1) {
 										_elm_lang$html$Html$button,
 										{
 											ctor: '::',
-											_0: _elm_lang$html$Html_Attributes$style(buttonResetStyle),
+											_0: _elm_lang$html$Html_Attributes$style(buttonStyle),
 											_1: {
 												ctor: '::',
-												_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Reset),
+												_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Dec),
 												_1: {ctor: '[]'}
 											}
 										},
 										{
 											ctor: '::',
-											_0: _elm_lang$html$Html$text('Reset'),
+											_0: _elm_lang$html$Html$text('- Decrease'),
 											_1: {ctor: '[]'}
 										}),
-									_1: {ctor: '[]'}
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$button,
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$style(buttonStyle),
+												_1: {
+													ctor: '::',
+													_0: _elm_lang$html$Html_Events$onClick(
+														_user$project$Main$Add(10)),
+													_1: {ctor: '[]'}
+												}
+											},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('Add 10'),
+												_1: {ctor: '[]'}
+											}),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$button,
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html_Attributes$style(buttonResetStyle),
+													_1: {
+														ctor: '::',
+														_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Reset),
+														_1: {ctor: '[]'}
+													}
+												},
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html$text('Reset'),
+													_1: {ctor: '[]'}
+												}),
+											_1: {ctor: '[]'}
+										}
+									}
 								}
 							}
 						}
@@ -247,7 +277,7 @@ var _user$project$Main$main = _elm_lang$html$Html$program(
 	{
 		init: {
 			ctor: '_Tuple2',
-			_0: {counter: 0, name: ''},
+			_0: {counter: 0, name: 'Souza!'},
 			_1: _elm_lang$core$Platform_Cmd$none
 		},
 		update: _user$project$Main$update,
