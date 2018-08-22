@@ -8231,10 +8231,11 @@ var _elm_lang$html$Html_Events$Options = F2(
 	function (a, b) {
 		return {stopPropagation: a, preventDefault: b};
 	});
-var _user$project$Main$subscriptions = function (model) {
-	return _elm_lang$core$Platform_Sub$none;
-};
-var _user$project$Main$update = F2(
+var _user$project$Model$Model = F2(
+	function (a, b) {
+		return {counter: a, name: b};
+	});
+var _user$project$Update$update = F2(
 	function (msg, model) {
 		var _p0 = msg;
 		switch (_p0.ctor) {
@@ -8288,22 +8289,18 @@ var _user$project$Main$update = F2(
 				}
 		}
 	});
-var _user$project$Main$Model = F2(
-	function (a, b) {
-		return {counter: a, name: b};
-	});
-var _user$project$Main$InputName = function (a) {
+var _user$project$Update$InputName = function (a) {
 	return {ctor: 'InputName', _0: a};
 };
-var _user$project$Main$Add = function (a) {
+var _user$project$Update$Add = function (a) {
 	return {ctor: 'Add', _0: a};
 };
-var _user$project$Main$Reset = {ctor: 'Reset'};
-var _user$project$Main$Dec = {ctor: 'Dec'};
-var _user$project$Main$Inc = {ctor: 'Inc'};
-var _user$project$Main$view = function (_p1) {
-	var _p2 = _p1;
-	var _p3 = _p2.name;
+var _user$project$Update$Reset = {ctor: 'Reset'};
+var _user$project$Update$Dec = {ctor: 'Dec'};
+var _user$project$Update$Inc = {ctor: 'Inc'};
+var _user$project$View$view = function (_p0) {
+	var _p1 = _p0;
+	var _p2 = _p1.name;
 	var buttonResetStyle = {
 		ctor: '::',
 		_0: {ctor: '_Tuple2', _0: 'backgroundColor', _1: 'fuchsia'},
@@ -8362,7 +8359,7 @@ var _user$project$Main$view = function (_p1) {
 						A2(
 							_elm_lang$core$Basics_ops['++'],
 							'Olar ',
-							A2(_elm_lang$core$Basics_ops['++'], _p3, '!'))),
+							A2(_elm_lang$core$Basics_ops['++'], _p2, '!'))),
 					_1: {ctor: '[]'}
 				}),
 			_1: {
@@ -8385,10 +8382,10 @@ var _user$project$Main$view = function (_p1) {
 						_elm_lang$html$Html$input,
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$value(_p3),
+							_0: _elm_lang$html$Html_Attributes$value(_p2),
 							_1: {
 								ctor: '::',
-								_0: _elm_lang$html$Html_Events$onInput(_user$project$Main$InputName),
+								_0: _elm_lang$html$Html_Events$onInput(_user$project$Update$InputName),
 								_1: {ctor: '[]'}
 							}
 						},
@@ -8419,7 +8416,7 @@ var _user$project$Main$view = function (_p1) {
 								{
 									ctor: '::',
 									_0: _elm_lang$html$Html$text(
-										_elm_lang$core$Basics$toString(_p2.counter)),
+										_elm_lang$core$Basics$toString(_p1.counter)),
 									_1: {ctor: '[]'}
 								}),
 							_1: {
@@ -8431,7 +8428,7 @@ var _user$project$Main$view = function (_p1) {
 										_0: _elm_lang$html$Html_Attributes$style(buttonStyle),
 										_1: {
 											ctor: '::',
-											_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Inc),
+											_0: _elm_lang$html$Html_Events$onClick(_user$project$Update$Inc),
 											_1: {ctor: '[]'}
 										}
 									},
@@ -8449,7 +8446,7 @@ var _user$project$Main$view = function (_p1) {
 											_0: _elm_lang$html$Html_Attributes$style(buttonStyle),
 											_1: {
 												ctor: '::',
-												_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Dec),
+												_0: _elm_lang$html$Html_Events$onClick(_user$project$Update$Dec),
 												_1: {ctor: '[]'}
 											}
 										},
@@ -8468,7 +8465,7 @@ var _user$project$Main$view = function (_p1) {
 												_1: {
 													ctor: '::',
 													_0: _elm_lang$html$Html_Events$onClick(
-														_user$project$Main$Add(10)),
+														_user$project$Update$Add(10)),
 													_1: {ctor: '[]'}
 												}
 											},
@@ -8486,7 +8483,7 @@ var _user$project$Main$view = function (_p1) {
 													_0: _elm_lang$html$Html_Attributes$style(buttonResetStyle),
 													_1: {
 														ctor: '::',
-														_0: _elm_lang$html$Html_Events$onClick(_user$project$Main$Reset),
+														_0: _elm_lang$html$Html_Events$onClick(_user$project$Update$Reset),
 														_1: {ctor: '[]'}
 													}
 												},
@@ -8506,6 +8503,9 @@ var _user$project$Main$view = function (_p1) {
 			}
 		});
 };
+var _user$project$Main$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$none;
+};
 var _user$project$Main$main = _elm_lang$html$Html$program(
 	{
 		init: {
@@ -8513,9 +8513,9 @@ var _user$project$Main$main = _elm_lang$html$Html$program(
 			_0: {counter: 0, name: 'Souza!'},
 			_1: _elm_lang$core$Platform_Cmd$none
 		},
-		update: _user$project$Main$update,
+		update: _user$project$Update$update,
 		subscriptions: _user$project$Main$subscriptions,
-		view: _user$project$Main$view
+		view: _user$project$View$view
 	})();
 var Elm = {};
 Elm['Main'] = Elm['Main'] || {};
