@@ -1,6 +1,8 @@
 module Update exposing (Msg(..), update)
 
+import Http exposing (Error, send)
 import Model exposing (Model)
+import Rest exposing (DogsType, dogsRequest)
 
 
 type Msg
@@ -9,6 +11,7 @@ type Msg
     | Reset
     | Add Int
     | InputName String
+    | DogsResponse (Result Error DogsType)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -27,7 +30,16 @@ update msg model =
             ( { model | counter = model.counter + i }, Cmd.none )
 
         InputName "Souza" ->
-            ( { counter = model.counter + 100, name = "Souza!" }, Cmd.none )
+            ( { model | counter = model.counter + 100, name = "Souza!" }, Cmd.none )
+
+        InputName "Dog" ->
+            ( { model | name = "Dog!" }, send DogsResponse dogsRequest )
 
         InputName name ->
             ( { model | name = name }, Cmd.none )
+
+        DogsResponse (Ok response) ->
+            ( { model | image = Just response.message }, Cmd.none )
+
+        DogsResponse _ ->
+            ( { model | image = Nothing }, Cmd.none )

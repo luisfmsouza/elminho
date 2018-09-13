@@ -4,7 +4,7 @@ module View exposing (view)
 -- import Html.Events exposing (onClick, onInput)
 
 import Color exposing (green, white)
-import Element exposing (Element, column, el, layout, padding, spacing, text)
+import Element exposing (Element, column, el, image, layout, none, padding, spacing, text)
 import Element.Background as Background
 import Element.Font as Font
 import Element.Input as Input
@@ -39,41 +39,22 @@ form name =
         }
 
 
+dogImage : Maybe String -> Element Msg
+dogImage maybeUrl =
+    case maybeUrl of
+        Just url ->
+            el [] (image [] { src = url, description = "Au! Au!" })
+
+        Nothing ->
+            none
+
+
 view : Model -> Html Msg
-view { counter, name } =
+view { counter, name, image } =
     layout [ Background.color green ]
         (column [ spacing 10, padding 20 ]
             [ greeting name
             , form name
+            , dogImage image
             ]
         )
-
-
-
--- view2 : Model -> Html Msg
--- view2 { counter, name } =
---     let
---         divStyle =
---             [ ( "backgroundColor", "green" ), ( "padding", "20px" ) ]
---         textStyle =
---             [ ( "color", "white" ) ]
---         buttonStyle =
---             [ ( "backgroundColor", "lime" ), ( "margin", "10px" ) ]
---         buttonResetStyle =
---             [ ( "backgroundColor", "fuchsia" ), ( "margin", "10px" ), ( "color", "white" ) ]
---     in
---     div
---         [ style divStyle ]
---         [ p
---             [ style textStyle ]
---             [ text ("Olar " ++ name ++ "!") ]
---         , p [ style textStyle ] [ text "Qual é seu nome?" ]
---         , input [ value name, onInput InputName ] []
---         , p [ style textStyle ] [ text "Mostre que você sabe somar:" ]
---         , p [ style textStyle ]
---             [ text (toString counter) ]
---         , button [ style buttonStyle, onClick Inc ] [ text "+ Increase" ]
---         , button [ style buttonStyle, onClick Dec ] [ text "- Decrease" ]
---         , button [ style buttonStyle, onClick (Add 10) ] [ text "Add 10" ]
---         , button [ style buttonResetStyle, onClick Reset ] [ text "Reset" ]
---         ]

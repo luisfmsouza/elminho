@@ -14,7 +14,7 @@ subscriptions model =
 main : Program Never Model Msg
 main =
     program
-        { init = ( { counter = 0, name = "Souza!" }, Cmd.none )
+        { init = ( { counter = 0, name = "Souza!", image = Nothing }, Cmd.none )
         , update = update
         , subscriptions = subscriptions
         , view = view
