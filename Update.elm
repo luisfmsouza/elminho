@@ -29,11 +29,11 @@ update msg model =
         Add i ->
             ( { model | counter = model.counter + i }, Cmd.none )
 
-        InputName "Souza" ->
-            ( { model | counter = model.counter + 100, name = "Souza!" }, Cmd.none )
+        InputName "Gato" ->
+            ( { model | counter = model.counter + 100, name = "Gato!" }, Cmd.none )
 
-        InputName "Dog" ->
-            ( { model | name = "Dog!" }, send DogsResponse dogsRequest )
+        InputName "Cachorro" ->
+            ( { model | name = "Cachorro!" }, send DogsResponse dogsRequest )
 
         InputName name ->
             ( { model | name = name }, Cmd.none )

@@ -21321,20 +21321,20 @@ var _user$project$Update$update = F2(
 				};
 			case 'InputName':
 				switch (_p0._0) {
-					case 'Souza':
+					case 'Gato':
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
 								model,
-								{counter: model.counter + 100, name: 'Souza!'}),
+								{counter: model.counter + 100, name: 'Gato!'}),
 							_1: _elm_lang$core$Platform_Cmd$none
 						};
-					case 'Dog':
+					case 'Cachorro':
 						return {
 							ctor: '_Tuple2',
 							_0: _elm_lang$core$Native_Utils.update(
 								model,
-								{name: 'Dog!'}),
+								{name: 'Cachorro!'}),
 							_1: A2(_elm_lang$http$Http$send, _user$project$Update$DogsResponse, _user$project$Rest$dogsRequest)
 						};
 					default:
@@ -21402,11 +21402,11 @@ var _user$project$View$form = function (name) {
 				_0: _mdgriffith$stylish_elephants$Element_Font$color(_elm_lang$core$Color$white),
 				_1: {ctor: '[]'}
 			},
-			_mdgriffith$stylish_elephants$Element$text('Qual é o seu nome?')));
+			_mdgriffith$stylish_elephants$Element$text('Qual é seu animal de estimacão favorito?')));
 	var placeholder = A2(
 		_mdgriffith$stylish_elephants$Element_Input$placeholder,
 		{ctor: '[]'},
-		_mdgriffith$stylish_elephants$Element$text('Digite seu nome'));
+		_mdgriffith$stylish_elephants$Element$text('Cachorro'));
 	return A2(
 		_mdgriffith$stylish_elephants$Element_Input$text,
 		{ctor: '[]'},
@@ -21417,23 +21417,16 @@ var _user$project$View$form = function (name) {
 			label: label
 		});
 };
-var _user$project$View$greeting = function (name) {
-	return A2(
-		_mdgriffith$stylish_elephants$Element$el,
-		{
-			ctor: '::',
-			_0: _mdgriffith$stylish_elephants$Element_Font$color(_elm_lang$core$Color$white),
-			_1: {ctor: '[]'}
-		},
-		_mdgriffith$stylish_elephants$Element$text(
-			A2(
-				_elm_lang$core$Basics_ops['++'],
-				'.olar, ',
-				A2(_elm_lang$core$Basics_ops['++'], name, '!'))));
-};
+var _user$project$View$greeting = A2(
+	_mdgriffith$stylish_elephants$Element$el,
+	{
+		ctor: '::',
+		_0: _mdgriffith$stylish_elephants$Element_Font$color(_elm_lang$core$Color$white),
+		_1: {ctor: '[]'}
+	},
+	_mdgriffith$stylish_elephants$Element$text('Olar, humano!'));
 var _user$project$View$view = function (_p1) {
 	var _p2 = _p1;
-	var _p3 = _p2.name;
 	return A2(
 		_mdgriffith$stylish_elephants$Element$layout,
 		{
@@ -21454,10 +21447,10 @@ var _user$project$View$view = function (_p1) {
 			},
 			{
 				ctor: '::',
-				_0: _user$project$View$greeting(_p3),
+				_0: _user$project$View$greeting,
 				_1: {
 					ctor: '::',
-					_0: _user$project$View$form(_p3),
+					_0: _user$project$View$form(_p2.name),
 					_1: {
 						ctor: '::',
 						_0: _user$project$View$dogImage(_p2.image),
@@ -21473,7 +21466,7 @@ var _user$project$Main$main = _elm_lang$html$Html$program(
 	{
 		init: {
 			ctor: '_Tuple2',
-			_0: {counter: 0, name: 'Souza!', image: _elm_lang$core$Maybe$Nothing},
+			_0: {counter: 0, name: 'Gato!', image: _elm_lang$core$Maybe$Nothing},
 			_1: _elm_lang$core$Platform_Cmd$none
 		},
 		update: _user$project$Update$update,

@@ -5,7 +5,7 @@ var _user$project$Main$main = _elm_lang$html$Html$program(
 	{
 		init: {
 			ctor: '_Tuple2',
-			_0: {counter: 0, name: 'Souza!', image: _elm_lang$core$Maybe$Nothing},
+			_0: {counter: 0, name: 'Gato!', image: _elm_lang$core$Maybe$Nothing},
 			_1: _elm_lang$core$Platform_Cmd$none
 		},
 		update: _user$project$Update$update,

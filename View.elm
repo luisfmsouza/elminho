@@ -13,22 +13,22 @@ import Model exposing (Model)
 import Update exposing (Msg(Add, Dec, Inc, InputName, Reset))
 
 
-greeting : String -> Element Msg
-greeting name =
-    el [ Font.color white ] (text (".olar, " ++ name ++ "!"))
+greeting : Element Msg
+greeting =
+    el [ Font.color white ] (text "Olar, humano!")
 
 
 form : String -> Element Msg
 form name =
     let
         placeholder =
-            Input.placeholder [] (text "Digite seu nome")
+            Input.placeholder [] (text "Cachorro")
 
         label =
             Input.labelAbove []
                 (el
                     [ Font.color white ]
-                    (text "Qual é o seu nome?")
+                    (text "Qual é seu animal de estimacão favorito?")
                 )
     in
     Input.text []
@@ -53,7 +53,7 @@ view : Model -> Html Msg
 view { counter, name, image } =
     layout [ Background.color green ]
         (column [ spacing 10, padding 20 ]
-            [ greeting name
+            [ greeting
             , form name
             , dogImage image
             ]
